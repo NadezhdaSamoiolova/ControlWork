@@ -4,22 +4,24 @@
 void ShowArray3Digits(string[] arrString)
 {
     Console.Write("[");
+    bool once = false;
     for (int i = 0; i < arrString.Length; i++)
         if (arrString[i].Length <= 3)
         {
-            if(i == 0) 
+            if(i == 0 || ! once) 
             {
                 Console.Write(arrString[i]);
             } else 
             {
                 Console.Write(", " + arrString[i]);
             }
+            once = true;
         }
     Console.Write("]");
 }
 
 Console.WriteLine("Enter stings separated by a comma: ");
-string? text = Console.ReadLine();
+string text = Console.ReadLine();
 
 string[] arrString = text.Split(new char[] { ',', ' '}, StringSplitOptions.RemoveEmptyEntries);
 Console.Write("Your array of strings is: [");
